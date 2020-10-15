@@ -1,0 +1,44 @@
+button {
+    cursor: pointer;
+    padding: em(18) em(15);
+    background-color: $primaryColor;
+    border: 0;
+    color: $white;
+    border-radius: em(5);
+    font: 500 em(12) $secondFont;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font: 500 em(12) $secondFont;
+    @include transition(all, 200);
+
+    &:hover {
+        background-color: $hover;
+        box-shadow: 0 0 0 em(3) hsla(22, 98%, 58%, 0.301);
+    }
+
+    >svg {
+        width: em(20);
+        margin: 0 em(5) 0 0;
+    }
+
+    &-min {
+        width: 100%;
+
+        @include media(tablet) {
+            width: 50%;
+        }
+
+        &-1 {
+            width: 100%;
+
+            @include media(tablet) {
+                width: 20%;
+            }
+        }
+    }
+}

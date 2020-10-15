@@ -1,0 +1,15 @@
+// 01 - utilities
+@import "01_utils/variables";
+@import "01_utils/functions";
+@import "01_utils/mixins";
+@import "01_utils/globals";
+
+// 02 - components
+@import "02_components/buttons";
+@import "02_components/inputs";
+
+// 03 - layout
+@import "03_layout/navbar";
+@import "03_layout/header";
+@import "03_layout/body";
+@import "03_layout/footer";

@@ -1,0 +1,201 @@
+.in {
+    @include transition(all, 200);
+    color: #777;
+    background-color: $white;
+    font-family: $firstFont;
+    font-size: em(14);
+
+    border: em(1) solid hsl(0, 0%, 79%);
+    padding: em(8) em(15);
+    border-radius: em(5);
+
+    &::placeholder {
+        color: hsl(0, 0%, 79%);
+        font: 200 em(15) $firstFont;
+        text-transform: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+        box-shadow: 0 0 0 em(5) hsla(22, 98%, 58%, 20%);
+        border: em(1) solid $primaryColor;
+    }
+
+    &:hover:valid:not(textarea),
+    &:focus:valid {
+        box-shadow: 0 0 0 em(5) hsla(123, 68%, 61%, 20%);
+        border: em(1) solid hsl(123, 68%, 61%);
+    }
+
+    &:valid:not(textarea) {
+        box-shadow: 0 0 0 em(5) hsla(123, 68%, 61%, 20%);
+        border: em(1) solid hsl(123, 68%, 61%);
+    }
+
+    &:invalid {
+        box-shadow: 0;
+
+        &:focus-within {
+            box-shadow: 0 0 0 em(5) rgba(223, 88, 88, 0.3);
+            border: em(1) solid hsl(0, 68%, 61%);
+        }
+
+
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        padding: 0 0 em(15) 0;
+        position: relative;
+
+        @include media(tablet) {
+            padding: 0 0 em(10) 0;
+        }
+    }
+
+    &__label {
+        color: #999;
+        font-size: em(12);
+        padding: 0 0 em(10) 0;
+
+        @include media(tablet) {
+            font-size: em(13);
+            padding: 0 0 em(5) 0;
+        }
+    }
+
+    &__right {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        color: #999;
+        font: normal em(12) $firstFont;
+    }
+
+    &__lower {
+        text-transform: lowercase;
+    }
+
+    &--medium {
+        width: 100%;
+
+        @include media(tablet) {
+            width: 70%;
+        }
+    }
+
+    &--min {
+        width: 100%;
+
+        @include media(tablet) {
+            width: 20%;
+        }
+    }
+
+    &--max {
+        width: 100%;
+    }
+
+    &--error {
+        border: em(1) solid #FF4444;
+
+        &:hover {
+            border: em(1) solid #FF4444;
+        }
+
+        &--msg {
+            padding: em(10);
+            text-align: center;
+
+            sub {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                position: relative;
+                font-size: em(13);
+                color: #FF4444;
+
+                img {
+                    width: em(20);
+                    margin: 0 em(10) 0 0;
+                }
+            }
+        }
+    }
+}
+
+.checkbox {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+    &-text {
+        pointer-events: none;
+        color: #777;
+        padding: em(2.5) 0 0 em(30);
+        position: relative;
+        font-size: em(12.5);
+
+    }
+
+    &-label {
+        position: relative;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+
+            @include transition(all, 300);
+
+            &:checked~.checkbox-custom {
+                background-color: $primaryColor;
+                border-radius: em(5);
+                box-shadow: inset 0 0 0 em(2) $white;
+
+                @include transition(all, 200);
+
+                &:hover {
+                    box-shadow: 0 0 0 em(3) hsla(22, 98%, 58%, 20%);
+                }
+            }
+
+        }
+    }
+
+    &-custom {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: em(16);
+        width: em(16);
+        background-color: transparent;
+        border: em(1) solid $primaryColor;
+        border-radius: em(5);
+
+        @include transition(all, 200);
+
+        &:hover {
+            box-shadow: 0 0 0 em(3) hsla(22, 98%, 58%, 20%);
+        }
+    }
+}
+
+.unhover {
+    cursor: not-allowed;
+    padding: em(10) 0;
+    color: #444;
+    border: none;
+    background-color: inherit;
+
+    &:hover,
+    &:focus {
+        box-shadow: none;
+        border: none;
+    }
+}

@@ -1,0 +1,161 @@
+$textColor: #FFF;
+
+header {
+    width: 100%;
+    height: 100vh;
+
+    min-height: em(600);
+
+    position: relative;
+
+    .background {
+        
+        @include bg-image('../assets/images/home/00_header-mobile-optimized.jpg', yes, rgba(0, 0, 0, 0.5));
+
+        @include media(tablet) {
+            @include bg-image('../assets/images/home/00_header-desktop-optimized.jpg', no, transparent);
+        }
+
+        height: 100%;
+        width: 100%;
+
+        &__about {
+
+            @include bg-image('../assets/images/about/00__header-desktop.webp', yes, rgba(0, 0, 0, 0.5));
+
+            @include media(tablet) {
+                @include bg-image('../assets/images/about/00__header-desktop.webp', yes, rgba(0, 0, 0, 0.5));
+            }
+
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .header_container {
+        height: 100%;
+        padding: 0 7.5%;
+        font-family: 'Montserrat';
+        position: relative;
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+
+            @include transition(all, 300);
+
+            @include media(tablet) {
+                height: 90%;
+            }
+        }
+
+        &__small_header {
+            margin: {
+                bottom: em(10);
+            }
+
+            h4 {
+                font-size: em(10);
+                color: $textColor;
+                text-transform: uppercase;
+                letter-spacing: em(1);
+                position: relative;
+                font-weight: 500;
+
+                @include transition(all, 300);
+
+                &::after {
+                    content: url('../assets/component/hr.svg');
+                    top: em(-2.5);
+                    padding-left: em(20);
+                    position: absolute;
+                }
+
+                @include media(tablet) {
+                    font-size: em(15);
+                    color: $white;
+                }
+            }
+        }
+
+        &__large_header {
+            h2 {
+                font-size: em(40);
+                font-weight: bold;
+                color: $textColor;
+
+                @include transition(all, 300);
+
+                @include media(mobile) {
+                    font-size: em(30);
+                }
+
+                @include media(tablet) {
+                    font-size: em(60);
+                    color: $white;
+                }
+            }
+        }
+
+        &__paragraphs {
+            margin: {
+                top: em(10);
+            }
+
+            p {
+                color: $textColor;
+                line-height: em(27);
+                font-size: em(13);
+                width: 100%;
+
+                @include transition(all, 300);
+
+                @include media(tablet) {
+                    margin-top: em(15);
+                    font-size: $normalFont;
+                    min-width: em(400);
+                    width: 40%;
+                    color: $white;
+                }
+            }
+        }
+
+        &__buttons {
+            margin: {
+                top: em(30);
+            }
+
+            display: flex;
+            flex-flow: row wrap;
+            gap: 0;
+
+            @include media(tablet) {
+                gap: em(10);
+            }
+        }
+    }
+
+    svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    .header {
+        &--text-center {
+            text-align: center;
+
+            > h2 {
+                font-size: em(30);
+
+                @include media(tablet) {
+                    font-size: em(50);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+@function col-width($count) {
+    @return 100% / $count;
+}
+
+@function em($px) {
+    @return #{$px / 16}em;
+}

@@ -1,0 +1,50 @@
+.pagination {
+    width: 100%;
+
+
+    .active_page {
+        background-color: $primaryColor;
+        color: $white;
+        border: em(1) solid $primaryColor;
+
+        &:hover {
+            background-color: $hover;
+            color: $white;
+            border: em(1) solid $hover;
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+
+        li {
+            display: inline-block;
+
+            a {
+                background-color: $white;
+                color: #777;
+                border: em(1) solid #d6d6d6;
+                padding: em(5) em(8);
+
+                @include transition(all, 100);
+
+                &:hover {
+                    // background-color: $primaryColor;
+                    color: $primaryColor;
+                    border: em(1) solid $primaryColor;
+                }
+            }
+
+            &:first-child a {
+                border-top-left-radius: em(5);
+                border-bottom-left-radius: em(5);
+            }
+
+            &:last-child a {
+                border-top-right-radius: em(5);
+                border-bottom-right-radius: em(5);
+            }
+        }
+    }
+}

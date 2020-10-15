@@ -1,0 +1,154 @@
+.btn {
+    &:not(:last-child) {
+        margin-bottom: em(10);
+    }
+
+    @include media(tablet) {
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+    }
+    
+    &__gradient {
+        position: relative;
+        background: $gradientColor;
+        height: em(30);
+        
+        border: none;
+        color: $white;
+        cursor: pointer;
+        font-family: $firstFont;
+        
+        border-radius: em(5);
+        box-shadow: 0 0 em(10) em(1) rgba(255, 68, 68, 0.3);
+        position: relative;
+        border: em(1) solid $gradientColor;
+
+        @include transition(all, 200);
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: $white;
+            font-size: $normalFont;
+            height: 100%;
+            width: 100%;
+        }
+
+        &:hover {
+            box-shadow: 0 0 em(20) em(3) rgba(255, 68, 68, 0.4);
+        }
+
+        &:active,
+        &:focus {
+            background: $gradientColor;
+            box-shadow: 0 0 em(20) em(3) rgba(255, 68, 68, 0.5);
+        }
+    }
+
+    &__border {
+        position: relative;
+        background: transparent;
+        min-height: em(30);
+
+        border-radius: em(5);
+
+        @include transition(all, 200);
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: $normalFont;
+            height: 100%;
+            width: 100%;
+        }
+
+        &--white {
+            box-shadow: inset 0px 0px 0px em(1) $white;
+            border: em(1) solid $white;
+
+            &:hover {
+                background-color: $white;
+
+                a {
+                    color: #555;
+                }
+            }
+
+            a {
+                color: $white;
+            }
+        }
+
+        &--dark {
+            box-shadow: inset 0px 0px 0px em(1) $primaryColor;
+
+            &:hover {
+                background-color: $primaryColor;
+
+                a {
+                    color: $white;
+                }
+            }
+
+            a {
+                color: $primaryColor;
+            }
+        }
+    }
+
+    &--regular {
+        height: em(30);
+        width: em(90);
+
+        @include media(tablet) {
+            height: em(35);
+        }
+
+        @include media(desktop) {
+            width: em(100);
+        }
+    }
+
+    &--medium {
+        height: em(40);
+        width: 100%;
+        font-weight: 500;
+
+        @include media(tablet) {
+            width: em(170);
+        }
+
+        @include media(widescreen) {
+            width: em(300);
+        }
+    }
+    
+    &--font-regular {
+        a {
+            padding-top: 0;
+            font-size: em(15);
+            @include media(tablet) {
+                padding-top: em(4);
+            }
+        }
+    }
+    
+    &--form {
+        height: em(50);
+    }
+}
+
+button {
+    @include transition(all, 200);
+
+    &:disabled {
+        cursor: not-allowed;
+        background: $gradientColor;
+        opacity: 0.6;
+    }
+}

@@ -1,0 +1,197 @@
+.in {
+    @include transition(all, 200);
+    color: $textColor;
+    background-color: $white;
+    font-family: $firstFont;
+    font-size: em(14);
+
+    border: em(1) solid hsl(0, 0%, 79%);
+    padding: em(8) em(15);
+    border-radius: em(5);
+
+    &::placeholder {
+        color: hsl(0, 0%, 79%);
+        font-family: $firstFont;
+        text-transform: none;
+        font-weight: 200;
+        font-size: em(15);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+        box-shadow: 0 0 0 em(5) hsla(22, 98%, 58%, 20%);
+        border: em(1) solid $primaryColor;
+    }
+
+    &:hover:valid:not(textarea),
+    &:focus:valid {
+        box-shadow: 0 0 0 em(5) hsla(123, 68%, 61%, 20%);
+        border: em(1) solid hsl(123, 68%, 61%);
+    }
+
+    &:valid:not(textarea) {
+        box-shadow: 0 0 0 em(5) hsla(123, 68%, 61%, 20%);
+        border: em(1) solid hsl(123, 68%, 61%);
+    }
+
+    &:invalid {
+        box-shadow: 0;
+
+        &:focus-within {
+            box-shadow: 0 0 0 em(5) rgba(223, 88, 88, 0.3);
+            border: em(1) solid hsl(0, 68%, 61%);
+        }
+
+
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        padding: {
+            bottom: em(15);
+        }
+        position: relative;
+
+        @include media(tablet) {
+            padding: {
+                bottom: em(10);
+            }
+        }
+    }
+
+    &__label {
+        color: #999;
+        font-size: em(12);
+
+        padding-bottom: em(10);
+
+        @include media(tablet) {
+            font-size: em(13);
+            padding-bottom: em(5);
+        }
+    }
+
+    &__right {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        color: #999;
+        font-family: $firstFont;
+        font-size: em(12);
+
+        @incldue media(tablet) {
+            font-size: em(12);
+            font-family: $firstFont;
+        }
+    }
+
+    &__lower {
+        text-transform: lowercase;
+    }
+
+    &--medium {
+        width: 100%;
+
+        @include media(tablet) {
+            width: 70%;
+        }
+    }
+
+    &--max {
+        width: 100%;
+    }
+
+    &--error {
+        border: em(1) solid #FF4444;
+
+        &:hover {
+            border: em(1) solid #FF4444;
+        }
+
+        &--msg {
+            padding: em(10);
+            text-align: center;
+
+            sub {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                position: relative;
+                font-size: em(13);
+                color: #FF4444;
+
+                img {
+                    width: em(20);
+                    margin-right: em(10);
+                }
+            }
+        }
+    }
+}
+
+.checkbox {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+        
+    &-text {
+        pointer-events: none;
+        color: #777;
+
+        padding: {
+            left: em(30);
+            top: em(2.5);
+        }
+
+        position: relative;
+        font-size: em(12.5);
+
+    }
+
+    &-label {
+        position: relative;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+
+            @include transition(all, 300);
+
+            &:checked ~ .checkbox-custom {
+                background: $primaryColor;
+                border-radius: em(5);
+                box-shadow: inset 0 0 0 em(2) $white;
+
+                @include transition(all, 200);
+
+                &:hover {
+                    box-shadow: 0 0 0 em(3) hsla(22, 98%, 58%, 20%);
+                }
+            }
+
+        }
+    }
+
+    &-custom {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: em(16);
+        width: em(16);
+        background-color: transparent;
+        border: em(1) solid $primaryColor;
+        border-radius: em(5);
+
+        @include transition(all, 200);
+
+        &:hover {
+            box-shadow: 0 0 0 em(3) hsla(22, 98%, 58%, 20%);
+        }
+    }
+}

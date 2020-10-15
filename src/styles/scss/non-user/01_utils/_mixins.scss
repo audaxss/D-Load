@@ -1,0 +1,29 @@
+@mixin bg-image($path, $a, $color) {
+    @if $a == yes {
+        background: linear-gradient($color, $color, $color), url($path);
+    } @else if $a == no {
+        background: url($path);
+    }
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+@mixin media($device) {
+    @if $device == mobile {
+        @media screen and (max-width: 480px) { @content; }
+    } @else if $device == tablet {
+        @media screen and (min-width: 790px) { @content; }
+    } @else if $device == laptop {
+        @media screen and (min-width: 992px) { @content; }
+    } @else if $device == desktop {
+        @media screen and (min-width: 1200px) { @content; }
+    } @else if $device == widescreen {
+        @media screen and (min-width: 1800px) { @content; }
+    } 
+}     
+
+@mixin transition($elm, $ms) {
+    transition: $elm #{$ms}ms ease-in-out;
+}
